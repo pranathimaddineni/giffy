@@ -1,0 +1,40 @@
+body {
+  background: #111;
+  color: white;
+  font-family: system-ui;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.search {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #222;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+video {
+  width: 100%;
+  border-radius: 6px;
+}
+
+button {
+  margin-top: 6px;
+  width: 100%;
+  cursor: pointer;
+}
