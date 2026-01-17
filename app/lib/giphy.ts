@@ -11,6 +11,7 @@ export async function searchGifs(query: string, offset = 0) {
   });
 
   const res = await fetch(`${BASE_URL}/search?${params}`);
+  if (!res.ok) throw new Error("API request failed");
 
   if (res.status === 429) {
     throw new Error("API_LIMIT");
@@ -19,7 +20,7 @@ export async function searchGifs(query: string, offset = 0) {
   return res.json();
 }
 
-export async function randomGifs() {
+export async function trendingGifs() {
   const params = new URLSearchParams({
     api_key: API_KEY,
     limit: "3",
@@ -27,5 +28,7 @@ export async function randomGifs() {
   });
 
   const res = await fetch(`${BASE_URL}/trending?${params}`);
+  if (!res.ok) throw new Error("API request failed");
+
   return res.json();
 }

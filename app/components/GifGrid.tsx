@@ -5,9 +5,11 @@ import GifCard from "./GifCard";
 
 export default function GifGrid({ gifs }: { gifs: Gif[] }) {
   return (
-    <div className="grid" role="list">
+    <div className="gif-grid" role="list">
       {gifs.map((gif) => (
-        <GifCard key={gif.id} gif={gif} />
+        <div key={gif.id} role="listitem">
+          <GifCard gif={gif} />
+        </div>
       ))}
     </div>
   );
