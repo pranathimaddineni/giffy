@@ -27,7 +27,6 @@ main {
   color: #ffffff;
 }
 
-/* Visually hidden for accessibility */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -133,3 +132,61 @@ main {
 .no-results-hint {
   color: #555;
 }
+
+.copy-status {
+  position: absolute;
+  bottom: 8px;
+  background: #111;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  text-align: center;
+}
+
+.copy-alert {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0a5;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  z-index: 1000;
+  max-width: 90%;
+  text-align: center;
+}
+
+.load-more-button {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 16px 0;
+  background-color: #0070f3;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.load-more-button:hover {
+  background-color: #005bb5;
+}
+
+.load-more-button:focus {
+  outline: 3px solid #ffbf47; 
+  outline-offset: 3px;
+}
+
+.load-more-button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+

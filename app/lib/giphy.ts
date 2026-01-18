@@ -1,11 +1,11 @@
 const API_KEY = process.env.NEXT_PUBLIC_GIPHY_API_KEY!;
 const BASE_URL = "https://api.giphy.com/v1/gifs";
 
-export async function searchGifs(query: string, offset = 0) {
+export async function searchGifs(query: string, offset = 0, limit = 12) {
   const params = new URLSearchParams({
     api_key: API_KEY,
     q: query,
-    limit: "12",
+    limit: limit.toString(),
     offset: offset.toString(),
     rating: "g",
   });
