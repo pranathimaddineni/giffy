@@ -1,10 +1,6 @@
 import { Suspense } from "react";
-import dynamic from "next/dynamic";
+import Home from "./components/Home";
 
-const Home = dynamic(() => import("./components/Home"), {
-  ssr: false,
-  loading: () => <p>Loading GIFs…</p>,
-});
 
 export default function Page() {
   return (
