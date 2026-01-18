@@ -3,14 +3,14 @@
 import { useCallback, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-import { searchGifs, trendingGifs } from "./lib/giphy";
-import SearchBar from "./components/SearchBar";
-import { Gif } from "./types/gif";
-import NoResults from "./components/NoResults";
+import { searchGifs, trendingGifs } from "../lib/giphy";
+import SearchBar from "../components/SearchBar";
+import { Gif } from "../types/gif";
+import NoResults from "../components/NoResults";
 
 const PAGE_SIZE = 12;
 
-const GifGrid = dynamic(() => import("./components/GifGrid"), {
+const GifGrid = dynamic(() => import("../components/GifGrid"), {
   ssr: false,
   loading: () => <p>Loading GIFs…</p>,
 });
