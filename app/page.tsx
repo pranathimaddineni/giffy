@@ -2,13 +2,18 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
 import { searchGifs, trendingGifs } from "./lib/giphy";
 import SearchBar from "./components/SearchBar";
-import GifGrid from "./components/GifGrid";
 import { Gif } from "./types/gif";
 import NoResults from "./components/NoResults";
 
 const PAGE_SIZE = 12;
+
+const GifGrid = dynamic(() => import("./components/GifGrid"), {
+  ssr: false,
+  loading: () => <p>Loading GIFs…</p>,
+});
 
 export default function Home() {
   const params = useSearchParams();
@@ -25,7 +30,6 @@ export default function Home() {
     async (reset = true) => {
       try {
         setLoading(true);
-
         const currentOffset = reset ? 0 : offset;
 
         if (!query) {
@@ -49,7 +53,6 @@ export default function Home() {
         localStorage.setItem("lastResults", JSON.stringify(cached));
       } catch {
         setError("GIF limit reached. Hang tight and try again shortly!");
-
         const cached = localStorage.getItem("lastResults");
         if (cached) {
           setGifs(JSON.parse(cached) as Gif[]);
